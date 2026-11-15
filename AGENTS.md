@@ -88,3 +88,113 @@ Read `docs/README.md` inside that installed package first, then read the relevan
 
 This block is written and re-added by `turbo` before repository-scoped commands when an AI agent is detected. In the Turborepo source repository, its template is defined in `crates/turborepo-cli/src/cli/agent_guidance.rs`. Removing the managed block while updates are enabled means a later qualifying invocation will add it again. Set `"agentGuidance": false` in the root `turbo.json` or `turbo.jsonc` to opt out; this does not remove an existing block. Keep the block committed with your work to avoid an uncommitted change on the next agent invocation.
 <!-- END:turborepo-agent-rules -->
+
+<!-- KNOSSOS:START execution-mode -->
+## Execution Mode
+
+Use the available agents and slash commands. Delegate complex work to specialists via Task tool.
+<!-- KNOSSOS:END execution-mode -->
+
+<!-- KNOSSOS:START quick-start regenerate=true source=ACTIVE_RITE+agents -->
+## Quick Start
+
+> Rite scope: this block governs the **rea** repo.
+
+6-agent workflow (rnd):
+
+| Agent | Role |
+| ----- | ---- |
+| **potnia** | Coordinates technology exploration phases |
+| **technology-scout** | Scouts emerging technologies and provides build vs buy analysis |
+| **integration-researcher** | Maps integration dependencies and assesses compatibility |
+| **prototype-engineer** | Builds proof-of-concept prototypes with deliberate shortcuts |
+| **moonshot-architect** | Designs visionary long-term architecture plans |
+| **tech-transfer** | Facilitates technology transfer from R&D to production teams |
+
+Delegate to specialists via Task tool.
+
+Authoritative active rite for this working directory: `ari rite current` (nearest `.knossos/ACTIVE_RITE`). Rite blocks from ancestor CLAUDE.md files are context-only.
+<!-- KNOSSOS:END quick-start -->
+
+<!-- KNOSSOS:START agent-routing -->
+## Agent Routing
+
+Delegate to specialists via Task tool.
+<!-- KNOSSOS:END agent-routing -->
+
+<!-- KNOSSOS:START commands -->
+## CC Primitives
+
+| CC Primitive | Invocation | Source |
+|---|---|---|
+| Slash command | User types `/name` | `.claude/commands/` |
+| Skill tool | Model calls `Skill("name")` | `.claude/skills/` |
+| Task tool | Model calls `Task(subagent_type)` | `.claude/agents/` |
+| Hook | Auto-fires on lifecycle events | `.claude/settings.json` |
+Agents cannot spawn other agents — only the main thread has Task tool access.
+<!-- KNOSSOS:END commands -->
+
+<!-- KNOSSOS:START agent-configurations regenerate=true source=agents/*.md -->
+## Agents
+
+Prompts in `.claude/agents/`:
+
+- `potnia.md` - Coordinates technology exploration phases
+- `technology-scout.md` - Scouts emerging technologies and provides build vs buy analysis
+- `integration-researcher.md` - Maps integration dependencies and assesses compatibility
+- `prototype-engineer.md` - Builds proof-of-concept prototypes with deliberate shortcuts
+- `moonshot-architect.md` - Designs visionary long-term architecture plans
+- `tech-transfer.md` - Facilitates technology transfer from R&D to production teams
+
+### Summonable Heroes
+Operational agents available on demand. Their commands handle the lifecycle:
+- **myron** - Feature discovery scout -> `/discover`
+- **theoros** - Domain auditor -> `/know`
+- **dionysus** - Knowledge synthesizer -> `/land`
+- **naxos** - Session hygiene -> `/naxos`
+- **charon** - Thresholdspace attestation agent -> `/charon`
+
+Summon: `ari agent summon {name}` then restart CC.
+Dismiss: `ari agent dismiss {name}` then restart CC.
+### Harness Agents
+Cross-harness peer-dispatch agents available via their command:
+- **iris** - Operational bot — executes API integrations against org-ecosystem services -> `/iris`
+<!-- KNOSSOS:END agent-configurations -->
+
+<!-- KNOSSOS:START platform-infrastructure -->
+## Platform
+
+CLI reference: `ari --help`.
+<!-- KNOSSOS:END platform-infrastructure -->
+
+<!-- KNOSSOS:START know -->
+
+## Codebase Knowledge
+
+Persistent knowledge in `.know/`. Generate with `/know --all` if not present.
+
+- `Read(".know/architecture.md")` — package structure, layers, data flow (read before code changes)
+- `Read(".know/scar-tissue.md")` — past bugs, defensive patterns
+- `Read(".know/design-constraints.md")` — frozen areas, structural tensions
+- `Read(".know/conventions.md")` — error handling, file organization, domain idioms
+- `Read(".know/test-coverage.md")` — test gaps, coverage patterns
+- `Read(".know/feat/INDEX.md")` — feature catalog and taxonomy (generate with `/know --scope=feature`)
+Work product artifacts in `.ledge/`:
+
+- `.ledge/decisions/` — ADRs and design decisions
+- `.ledge/specs/` — PRDs and technical specs
+- `.ledge/reviews/` — audit reports and code reviews
+- `.ledge/spikes/` — exploration and research artifacts
+
+<!-- KNOSSOS:END know -->
+
+<!-- KNOSSOS:START hierarchy-map -->
+
+<!-- KNOSSOS:END hierarchy-map -->
+
+<!-- KNOSSOS:START user-content -->
+## Project-Specific Instructions
+
+<!-- Add project conventions, anti-patterns, and active work here.
+     This section is preserved during sync. -->
+<!-- KNOSSOS:END user-content -->
